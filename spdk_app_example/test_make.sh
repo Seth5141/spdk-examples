@@ -4,6 +4,9 @@ set -e
 SPDK_DIR=$1
 
 $SPDK_DIR/configure --with-shared --without-isal
+
+sudo $SPDK_DIR/scripts/setup.sh
+
 make -C $SPDK_DIR -j$(nproc)
 
 export SPDK_HEADER_DIR="$SPDK_DIR/include"
